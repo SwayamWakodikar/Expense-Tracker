@@ -3,33 +3,90 @@
 *{
   background-color: rgb(31, 47, 39);
 }
-.InnerItems{
-  /* display: flex; */
+/* .InnerItems{
+  display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 10px 0;
   background: transparent;
-}
-.OuterCard{
+} */
+.OuterCard {
   background-color: rgb(83, 213, 148);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  margin: 20px auto;
+  margin: 40px 0 40px 0;
   max-width: 400px;
-  border: 2px solid rgb(155, 245, 209);
+  border: 2px solid rgb(255, 255, 255);
 }
-.OuterCard .title h2{
+.InnerItems {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: rgb(83, 213, 148);
+}
+
+.title {
+  background-color: rgb(83, 213, 148);
+}
+
+.title h2 {
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
-  color: rgb(31, 47, 39);
-  font-family: 'Montserrat';
+  margin: 0 0 15px 0;
+  color: rgb(45, 55, 72);
+  font-size: 1.5em;
+  background-color: rgb(83, 213, 148);
+}
+
+.TextInput {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: rgb(83, 213, 148);
+}
+
+.TextInput input {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  background-color: rgb(83, 213, 148);
+  color: rgb(45, 55, 72);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.TextInput input::placeholder {
+  color: rgba(45, 55, 72, 0.7);
+}
+
+.TextInput input:focus {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  padding: 12px 20px;
+  background-color: rgb(83, 213, 148);
+  color: rgb(45, 55, 72);
+  border: 2px solid rgb(45, 55, 72);
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: rgb(70, 180, 125);
+  border-color: rgb(26, 32, 44);
 }
 @keyframes glow {
   0% {
     text-shadow: 0 0 0px rgb(155, 245, 209);
   }
   100% {
-    text-shadow: 0 0 15px rgb(155, 245, 209), 0 0 30px rgb(155, 245, 209);
+    text-shadow: 0 0 8px rgb(155, 245, 209), 0 0 5px rgb(155, 245, 209);
   }
 }
 

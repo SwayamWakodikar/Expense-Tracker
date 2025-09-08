@@ -9,9 +9,7 @@ function App() {
      <Layout>
       <TransactionForm />
      </Layout>
-      
     </>
   );
 }
-
 export default App;
