@@ -3,19 +3,12 @@
 *{
   background-color: rgb(31, 47, 39);
 }
-/* .InnerItems{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0;
-  background: transparent;
-} */
 .OuterCard {
   background-color: rgb(83, 213, 148);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  margin: 40px 0 40px 0;
+  margin: 40px 0 40px 40px;
   max-width: 400px;
   border: 2px solid rgb(255, 255, 255);
 }
@@ -43,16 +36,26 @@
 .TextInput {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 25px;
   background-color: rgb(83, 213, 148);
 }
 
-.TextInput input {
+.TextInput input  {
   padding: 12px;
   border: none;
   border-radius: 8px;
   font-size: 1em;
-  background-color: rgb(83, 213, 148);
+  background-color: rgb(188, 232, 210);
+  color: rgb(45, 55, 72);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+.TextInput select{
+    padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  background-color: rgb(188, 232, 210);
   color: rgb(45, 55, 72);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   outline: none;
@@ -65,6 +68,23 @@
 .TextInput input:focus {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+select {
+  background-color: #94ecca; /* dropdown background */
+  color: #ffffff;            /* text color */
+  border: 1px solid #0f172a; /* optional: border */
+  padding: 8px;
+  margin-top: 1px;
+  border-radius: 10pxpx;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Options inside the dropdown */
+select option {
+  background-color: #7dffdc; /* options background */
+  color: #000000;            /* options text */
+}
+
 
 button {
   padding: 12px 20px;
