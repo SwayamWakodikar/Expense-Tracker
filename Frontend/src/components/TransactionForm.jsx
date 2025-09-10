@@ -18,7 +18,10 @@ function TransactionForm() {
     setTransactionName(event.target.value);
   };
 
-  const handleSubmit = () => {
+ const handleSubmit = (e) => {
+    // prevent page refresh
+    e.preventDefault();
+
     if (transactionName && amount && parseFloat(amount) > 0 && category && date) {
       console.log('Transaction:', {
         name: transactionName,
