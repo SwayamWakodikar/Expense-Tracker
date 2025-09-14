@@ -38,7 +38,7 @@ expense-tracker/
 
 🚀 Getting Started
 1️⃣ Clone the repository
-git clone https://github.com/your-username/Expense-Tracker.git
+git clone https://github.com/SwayamWakodikar/Expense-Tracker.git
 cd Expense-Tracker
 
 2️⃣ Install dependencies
