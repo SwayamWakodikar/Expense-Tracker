@@ -4,7 +4,7 @@
   background-color: rgb(169, 189, 252);
 }
 
-.OuterCard {
+.OuterCard, .ListOuterCard, .GraphOuterCard {
   background-color: rgb(0, 130, 252);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -12,20 +12,22 @@
   margin: 40px 0 40px 40px;
   max-width: 400px;
   border: 2px solid rgb(0, 0, 0);
+  height: 380px;
+  width: 400px;
 }
 
-.InnerItems {
+.InnerItems, .ListInnerItems, .GraphInnerItems {
   display: flex;
   flex-direction: column;
   gap: 15px;
   background-color: rgb(0, 130, 252);
 }
 
-.title {
+.title, .Listtitle, .Graphtitle{
   background-color: rgb(0, 130, 252);;
 }
 
-.title h2 {
+.title h2, .Listtitle h2, .Graphtitle h2 {
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
@@ -63,27 +65,27 @@
 }
 
 .TextInput input::placeholder {
-  color: rgba(45, 55, 72, 0.7);
+  color: rgb(0, 0, 0);
 }
 
 .TextInput input:focus {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 select {
-  background-color: #94ecca; /* dropdown background */
-  color: #ffffff;            /* text color */
-  border: 1px solid #0f172a; /* optional: border */
+  background-color: #94ecca; 
+  color: #ffffff;            
+  border: 1px solid #0f172a; 
   padding: 8px;
   margin-top: 1px;
-  border-radius: 10pxpx;
+  border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
 }
 
-/* Options inside the dropdown */
+
 select option {
-  background-color: #7dffdc; /* options background */
-  color: #000000;            /* options text */
+  background-color: #9aacf6;
+  color: #000000;      
 }
 
 
@@ -99,18 +101,7 @@ button {
 }
 
 button:hover {
-  background-color: rgb(70, 180, 125);
+  background-color: rgb(210, 210, 241);
   border-color: rgb(26, 32, 44);
-}
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 0px rgb(155, 245, 209);
-  }
-  100% {
-    text-shadow: 0 0 8px rgb(155, 245, 209), 0 0 5px rgb(155, 245, 209);
-  }
-}
-
-.glow-hover:hover {
-  animation: glow 0.2s ease-in-out forwards;
+  color: #000000;
 }
