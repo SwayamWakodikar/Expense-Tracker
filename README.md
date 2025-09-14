@@ -16,11 +16,11 @@ A simple and efficient Expense Tracker app to help you manage daily expenses, tr
 
 🛠️ Tech Stack
 
-Frontend: React.js (or your choice: HTML/CSS/JS)
+Frontend: React.js
 
-Backend: Node.js / Express (if applicable)
+Backend: Node.js / Express
 
-Database: MongoDB / SQLite / LocalStorage
+Database: MongoDB
 
 Version Control: Git & GitHub
 
@@ -38,7 +38,7 @@ expense-tracker/
 
 🚀 Getting Started
 1️⃣ Clone the repository
-git clone https://github.com/your-username/Expense-Tracker.git
+git clone https://github.com/SwayamWakodikar/Expense-Tracker.git
 cd Expense-Tracker
 
 2️⃣ Install dependencies
@@ -50,31 +50,11 @@ npm start
 4️⃣ Build for production
 npm run build
 
-📸 Screenshots
-
-(Add your app screenshots here)
-
-🔮 Future Improvements
-
-📱 Mobile version (React Native / Flutter)
-
-🔔 Notifications for budget limits
-
 ☁️ Cloud sync & authentication
 
 📈 Advanced analytics dashboard
 
-🤝 Contributing
-
 Contributions are welcome!
-
-Fork the repo
-
-Create a feature branch (git checkout -b feature-name)
-
-Commit changes (git commit -m 'Added feature')
-
-Push to branch (git push origin feature-name)
 
 Open a Pull Request
 
