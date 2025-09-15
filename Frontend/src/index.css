@@ -1,50 +1,86 @@
-@import url('https://fonts.google.com/specimen/Montserrat');
+@import url("https://fonts.google.com/specimen/Montserrat");
 @import "tailwindcss";
-*{
+* {
   background-color: rgb(169, 189, 252);
+  /* color: #320067; */
 }
 
-.OuterCard, .ListOuterCard, .GraphOuterCard {
+.OuterCard{
   background-color: rgb(0, 130, 252);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  margin: 40px 0 40px 40px;
+  /* margin: 40px 0 40px 40px; */
+  max-width: 400px;
+  border: 2px solid rgb(0, 0, 0);
+  height: 100%;
+  /* width: 100px; */
+}
+.ListOuterCard {
+  background-color: rgb(0, 130, 252);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  /* margin: 40px 0 40px 40px; */
   max-width: 400px;
   border: 2px solid rgb(0, 0, 0);
   height: 380px;
-  width: 400px;
+  /* width: 100px; */
 }
-
-.InnerItems, .ListInnerItems, .GraphInnerItems {
+.GraphOuterCard {
+  background-color: rgb(0, 130, 252);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  /* margin: 40px 0 40px 40px; */
+  /* max-width: 400px; */
+  border: 2px solid rgb(0, 0, 0);
+  height: 380px;
+  width: 600px;
+}
+.InnerItems,
+.ListInnerItems,
+.GraphInnerItems {
   display: flex;
   flex-direction: column;
   gap: 15px;
   background-color: rgb(0, 130, 252);
+  height: 100%;
 }
 
-.title, .Listtitle, .Graphtitle{
-  background-color: rgb(0, 130, 252);;
+.title,
+.Listtitle,
+.Graphtitle {
+  background-color: rgb(0, 130, 252);
 }
 
-.title h2, .Listtitle h2, .Graphtitle h2 {
+.title h2,
+.Listtitle h2{
   font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
   margin: 0 0 15px 0;
   color: rgb(255, 255, 255);
   font-size: 1.5em;
-  background-color: rgb(0, 130, 252);;
+  background-color: rgb(0, 130, 252);
 }
-
+.Graphtitle h2 {
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin: 0 0 0px 0;
+  color: rgb(255, 255, 255);
+  font-size: 1.5em;
+  background-color: rgb(0, 130, 252);
+}
 .TextInput {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  background-color: rgb(0, 130, 252);;
+  background-color: rgb(0, 130, 252);
 }
 
-.TextInput input  {
+.TextInput input {
   padding: 12px;
   border: none;
   border-radius: 8px;
@@ -54,12 +90,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   outline: none;
 }
-.TextInput select{
+.TextInput select {
   padding: 12px;
   border: none;
   border-radius: 8px;
   font-size: 1em;
-  background-color: rgb(123, 218, 255);  color: rgb(45, 55, 72);
+  background-color: rgb(123, 218, 255);
+  color: rgb(45, 55, 72);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   outline: none;
 }
@@ -72,9 +109,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 select {
-  background-color: #94ecca; 
-  color: #ffffff;            
-  border: 1px solid #0f172a; 
+  background-color: #94ecca;
+  color: #ffffff;
+  border: 1px solid #0f172a;
   padding: 8px;
   margin-top: 1px;
   border-radius: 10px;
@@ -82,12 +119,10 @@ select {
   cursor: pointer;
 }
 
-
 select option {
   background-color: #9aacf6;
-  color: #000000;      
+  color: #000000;
 }
-
 
 button {
   padding: 12px 20px;
@@ -104,4 +139,9 @@ button:hover {
   background-color: rgb(210, 210, 241);
   border-color: rgb(26, 32, 44);
   color: #000000;
+}
+.Chart{
+  border-radius: 10px;
+  background-color: #000000;
+  margin-top: 0px;
 }

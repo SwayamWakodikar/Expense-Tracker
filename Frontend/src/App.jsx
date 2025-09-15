@@ -5,28 +5,26 @@ import Layout from "./components/Layout";
 import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
 import Graph from "./components/Graph";
+
 function App() {
   return (
     <>
-     <Layout>
-  <div className="flex flex-col md:flex-row justify-between items-start p-5 gap-5 w-full">
-    {/* Form on left */}
-    <div className="md:w-1/3 w-full">
-      <TransactionForm />
-    </div>
-
-    {/* List in the center */}
-    <div className="md:w-1/3 w-full">
-      <TransactionList />
-    </div>
-
-    {/* Graph on the right */}
-    <div className="md:w-1/3 w-full">
-      <Graph />
-    </div>
-  </div>
-</Layout>
+      <Layout>
+        <div className="flex flex-col lg:flex-row justify-between items-start p-5 gap-4 w-full">
+          <div className="flex-1 w-full">
+            <TransactionForm />
+          </div>
+          <div className="flex-1 w-full">
+            <TransactionList />
+          </div>          
+          <div className="lg:w-[600px] w-full flex-shrink-0">
+            <Graph />
+          </div>
+        </div>
+      </Layout>
     </>
   );
 }
+
 export default App;
+
