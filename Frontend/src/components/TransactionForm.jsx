@@ -1,5 +1,5 @@
-import { useState } from 'react';
-
+import { useState } from "react";
+import axios from "axios";
 function TransactionForm() {
   const [transactionName, setTransactionName] = useState("");
   const [amount, setAmount] = useState("");
@@ -18,22 +18,37 @@ function TransactionForm() {
     setTransactionName(event.target.value);
   };
 
- const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // prevent page refresh
     e.preventDefault();
 
-    if (transactionName && amount && parseFloat(amount) > 0 && category && date) {
-      console.log('Transaction:', {
-        name: transactionName,
+    if (
+      transactionName &&
+      amount &&
+      parseFloat(amount) > 0 &&
+      category &&
+      date
+    ) {
+      const newtransaction = {
+        title: transactionName || category,
         amount: parseFloat(amount),
         category,
-        date
-      });
+        date,
+      };
+      try {
+        const res = await axios.post(
+          "http://localhost:5000/api/expense",
+          newtransaction
+        );
+        console.log("Transaction Saved", res.data);
+        setTransactionName("");
+        setAmount("");
+        setCategory("");
+        setDate("");
+      } catch (err) {
+        console.error("Error occured in saving the data" + err);
+      }
       // Clear form after submission
-      setTransactionName("");
-      setAmount("");
-      setCategory("");
-      setDate("");
     } else {
       alert("Please fill in all fields with valid data");
     }
@@ -45,28 +60,26 @@ function TransactionForm() {
         <div className="title">
           <h2>Transaction Form</h2>
         </div>
-        
+
         <div className="TextInput">
           {/* Category Dropdown */}
-          <select className='DropDown'
-            value={category} 
+          <select
+            className="DropDown"
+            value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            
             <option value="">Select Category</option>
             <option value="food">Food</option>
             <option value="shopping">Shopping</option>
             <option value="travel">Travel</option>
             <option value="bills">Bills</option>
             <option value="others">Others</option>
-            
-            
           </select>
 
           {/* Conditional Input for "Others" */}
           {category === "others" && (
-            <input 
-              type="text" 
+            <input
+              type="text"
               placeholder="Enter Custom Category"
               value={transactionName}
               onChange={handleNameChange}
@@ -74,24 +87,22 @@ function TransactionForm() {
           )}
 
           {/* Date Picker */}
-          <input 
-            type="date" 
+          <input
+            type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
 
           {/* Amount Input */}
-          <input 
-            type="text" 
+          <input
+            type="text"
             placeholder="Enter Amount"
             value={amount}
             onChange={handleAmountChange}
           />
         </div>
-        
-        <button onClick={handleSubmit}>
-          Add Transaction
-        </button>
+
+        <button onClick={handleSubmit}>Add Transaction</button>
       </div>
     </div>
   );
