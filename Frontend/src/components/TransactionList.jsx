@@ -1,16 +1,27 @@
-import { useState } from "react";
-import Expense from "D:\Projects\Expense Tracker\expense-tracker\Backend\models\Expense.js"
-function TransactionList() {
-    return (
-    <div className="ListOuterCard">
-        <div className="ListInnerItems">
-            <div className="Listtitle">
-                <h2>Transaction List</h2>
-            </div>
-            <div>
-            </div>
-        </div>
-    </div>
-    );
+import {useState,useEffect} from 'react';
+import axios from 'axios';
+
+function TransactionList(){
+    const[Transaction,SetTransaction]=useState([]);
+    const[loading,setLoading]=useState(false);
+    const[error,setError]=useState(null);
+    const fetchTransaction=async ()=>{
+        try{
+            setLoading(true);
+            const response=await axios.get("http://localhost:5000/api/expense");
+            SetTransaction(response.data);
+            setError(null)
+        }
+        catch(err){
+            console.error("Error Finding Transaction");
+            setError(true);
+        }finally{
+            setLoading(false);
+        }
+    }
+    useEffect(()=>{
+        fetchTransaction();
+    },[])
+    return;
 }
 export default TransactionList

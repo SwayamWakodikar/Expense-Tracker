@@ -1,7 +1,7 @@
 @import url("https://fonts.google.com/specimen/Montserrat");
 @import "tailwindcss";
 * {
-  background-color: rgb(169, 189, 252);
+  /* background-color: rgb(255, 255, 255); */
   /* color: #320067; */
 }
 
@@ -32,8 +32,6 @@
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  /* margin: 40px 0 40px 40px; */
-  /* max-width: 400px; */
   border: 2px solid rgb(0, 0, 0);
   height: 380px;
   width: 600px;
@@ -138,10 +136,11 @@ button {
 button:hover {
   background-color: rgb(210, 210, 241);
   border-color: rgb(26, 32, 44);
-  color: #000000;
+  color: #060606;
 }
 .Chart{
   border-radius: 10px;
-  background-color: #000000;
+  background-color: #f7f6f6;
   margin-top: 0px;
+  color: #5bb8e9;
 }
