@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Expense from "D:\Projects\Expense Tracker\expense-tracker\Backend\models\Expense.js"
 function TransactionList() {
     return (
     <div className="ListOuterCard">
@@ -9,11 +10,7 @@ function TransactionList() {
             <div>
             </div>
         </div>
-        
     </div>
-        
     );
-        
-    
 }
 export default TransactionList

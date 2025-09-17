@@ -4,7 +4,6 @@ import cors from "cors";
 import mongoose from "mongoose";
 import Expense from "./models/Expense.js";
 import expenseRoutes from "./routes/expenseRoutes.js";
-
 dotenv.config();
 
 const port = process.env.PORT || 5000;
