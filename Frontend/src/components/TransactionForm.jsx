@@ -19,22 +19,22 @@ function TransactionForm() {
   };
 
   const handleSubmit = async (e) => {
-    // prevent page refresh
     e.preventDefault();
 
     if (
-      transactionName &&
       amount &&
       parseFloat(amount) > 0 &&
       category &&
-      date
+      date &&
+      (category !== "others" || transactionName)
     ) {
       const newtransaction = {
-        title: transactionName || category,
+        name: category === "others" ? transactionName : category,
         amount: parseFloat(amount),
         category,
         date,
       };
+
       try {
         const res = await axios.post(
           "http://localhost:5000/api/expense",
@@ -46,9 +46,8 @@ function TransactionForm() {
         setCategory("");
         setDate("");
       } catch (err) {
-        console.error("Error occured in saving the data" + err);
+        console.error("Error occurred in saving the data: " + err);
       }
-      // Clear form after submission
     } else {
       alert("Please fill in all fields with valid data");
     }
@@ -75,8 +74,6 @@ function TransactionForm() {
             <option value="bills">Bills</option>
             <option value="others">Others</option>
           </select>
-
-          {/* Conditional Input for "Others" */}
           {category === "others" && (
             <input
               type="text"
@@ -86,14 +83,11 @@ function TransactionForm() {
             />
           )}
 
-          {/* Date Picker */}
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
-
-          {/* Amount Input */}
           <input
             type="text"
             placeholder="Enter Amount"
@@ -102,7 +96,9 @@ function TransactionForm() {
           />
         </div>
 
-        <button onClick={handleSubmit}>Add Transaction</button>
+        <button type="submit" onClick={handleSubmit}>
+          Add Transaction
+        </button>
       </div>
     </div>
   );
