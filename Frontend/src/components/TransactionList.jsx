@@ -39,9 +39,11 @@ function TransactionList() {
 
     if (loading) {
         return (
-            <div className="OuterCard">
-                <div className="InnerItems">
-                    <h2 className="text-xl font-bold mb-5 text-white">Transaction List</h2>
+            <div className="ListOuterCard">
+                <div className="ListInnerItems">
+                    <div className="Listtitle">
+                        <h2>Transaction List</h2>
+                    </div>
                     <div className="text-center py-8 text-white">Loading transactions...</div>
                 </div>
             </div>
@@ -50,10 +52,13 @@ function TransactionList() {
 
     if (error) {
         return (
-            <div className="OuterCard">
-                <div className="InnerItems">
-                    <h2 className="text-xl font-bold mb-5">Transaction List</h2>
-                    <div className="text-center py-8 text-red-600">
+            <div className="ListOuterCard">
+                <div className="ListInnerItems">
+                    <div className="Listtitle">
+                        <h2>Transaction List</h2>
+                    </div>
+
+                    <div className="text-center py-8 text-red-600 text-2xl font-bold">
                         {error}
                         <button
                             onClick={fetchTransactions}
