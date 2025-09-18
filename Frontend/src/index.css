@@ -1,9 +1,9 @@
 @import url("https://fonts.google.com/specimen/Montserrat");
 @import "tailwindcss";
-* {
-  /* background-color: rgb(255, 255, 255); */
-  /* color: #320067; */
-}
+/* *{
+  background-color: #b3ddf1;
+} */
+
 
 .OuterCard{
   background-color: rgb(0, 130, 252);
