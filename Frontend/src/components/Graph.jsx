@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import axios from 'axios';
 
@@ -82,8 +82,25 @@ const [chartData,setChartData]=useState([]);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 const fetchTransactions=async () =>{
+    try{
+        setLoading(true);
+        const res=await axios.get("https://localhost:5000/api/expense");
+        setChartData(res.data);
+        setError(null);
 
+    }
+    catch(err){
+        console.error("Error occured while fetching the data",err);
+        setError("Error Occured");
+
+    }
+    finally{
+        setLoading(false);
+    }
 }
+useEffect(()=>{
+    fetchTransactions();
+},[]);
     return (
         <div className="GraphOuterCard">
             <div className="GraphInnerItems">
