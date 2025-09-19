@@ -13,7 +13,7 @@
   /* margin: 40px 0 40px 40px; */
   max-width: 400px;
   border: 2px solid rgb(0, 0, 0);
-  height: 100%;
+  height: 440px;
   /* width: 100px; */
 }
 .ListOuterCard {
@@ -24,7 +24,7 @@
   /* margin: 40px 0 40px 40px; */
   max-width: 400px;
   border: 2px solid rgb(0, 0, 0);
-  height: 380px;
+  height: 440px;
   /* width: 100px; */
 }
 .GraphOuterCard {
@@ -33,7 +33,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
   border: 2px solid rgb(0, 0, 0);
-  height: 380px;
+  height: 440px;
   width: 600px;
 }
 .InnerItems,

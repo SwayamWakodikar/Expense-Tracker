@@ -76,7 +76,10 @@ function TransactionList() {
         <div className="ListOuterCard">
             <div className="ListInnerItems">
                 <div className="flex justify-between items-center mb-5">
-                    <h2 className="text-xl font-bold text-white">Transaction List</h2>
+                    <div className="Graphtitle">
+                        <h2>Transaction List</h2>
+                    </div>
+                    
                     <button
                         onClick={fetchTransactions}
                         className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded text-sm transition-colors duration-200"
