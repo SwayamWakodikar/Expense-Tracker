@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+// import axios from "axios";
+import { Riple } from "react-loading-indicators";
 import {
   AreaChart,
   Area,
@@ -54,7 +56,13 @@ function Graph() {
             <h2>Transaction Graph</h2>
           </div>
           <div className="text-center py-8 text-white">
-            Loading transactions...
+            <Riple
+              className="flex justify-center "
+              color="#ffffff"
+              size="medium"
+              text=""
+              textColor=""
+            />
           </div>
         </div>
       </div>
