@@ -10,7 +10,7 @@ A simple and efficient Expense Tracker app to help you manage daily expenses, tr
 
 📅 Track transactions by date
 
-💾 Persistent data storage (e.g., local DB or API)
+💾 Persistent data storage on MongoDB Atlas
 
 🎨 Clean and user-friendly interface
 
@@ -50,13 +50,7 @@ npm start
 4️⃣ Build for production
 npm run build
 
-☁️ Cloud sync & authentication
-
 📈 Advanced analytics dashboard
-
-Contributions are welcome!
-
-Open a Pull Request
 
 📜 License
 
