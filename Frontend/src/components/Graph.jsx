@@ -19,7 +19,8 @@ function Graph() {
   const fetchTransactions = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/api/expense");
+      const API_URL = import.meta.env.VITE_API_URL;
+     const res = await axios.get(`${API_URL}/api/expense`);
       
       // Define proper month order
       const monthOrder = [
