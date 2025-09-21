@@ -10,10 +10,11 @@ dotenv.config();
 const port = process.env.PORT || 5000;
 const app = express();
 
-// ✅ Allowed origins (local + Vercel frontend)
+// ✅ Updated allowed origins with correct URLs
 const allowedOrigins = [
-  "http://localhost:5173",              // local dev (Vite default port)
-  "https://expense-tracker-pied-rho.vercel.app/"    // replace with your actual Vercel domain
+  "http://localhost:5173",                              // local dev
+  "https://expense-tracker-pied-rho.vercel.app",       // your Vercel frontend (removed trailing slash)
+  "https://expense-tracker-pied-rho.vercel.app/"       // with trailing slash just in case
 ];
 
 // ✅ CORS middleware
@@ -24,6 +25,7 @@ app.use(
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.log("Blocked origin:", origin); // Add logging for debugging
         callback(new Error("Not allowed by CORS"));
       }
     },

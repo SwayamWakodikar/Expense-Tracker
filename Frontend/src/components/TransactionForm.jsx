@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+
 function TransactionForm() {
   const [transactionName, setTransactionName] = useState("");
   const [amount, setAmount] = useState("");
@@ -36,8 +37,10 @@ function TransactionForm() {
       };
 
       try {
+        // ✅ Use environment variable instead of hardcoded localhost
+        const API_URL = import.meta.env.VITE_API_URL;
         const res = await axios.post(
-          "http://localhost:5000/api/expense",
+          `${API_URL}/api/expense`,
           newtransaction
         );
         console.log("Transaction Saved", res.data);

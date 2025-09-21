@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { OrbitProgress } from "react-loading-indicators";
 import { Riple } from "react-loading-indicators";
-// import { FlipFlopLoader } from "react-awesome-loaders";
-
 
 function TransactionList() {
   const [transactions, setTransactions] = useState([]);
@@ -13,7 +11,9 @@ function TransactionList() {
   const fetchTransactions = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/expense");
+      // ✅ Use environment variable instead of hardcoded localhost
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await axios.get(`${API_URL}/api/expense`);
       setTransactions(response.data);
       setError(null);
     } catch (err) {
@@ -49,7 +49,6 @@ function TransactionList() {
             <h2>Transaction List</h2>
           </div>
           <div className="text-center py-8 text-white">
-            {" "}
             <Riple
               className="flex justify-center "
               color="#ffffff"
@@ -160,4 +159,5 @@ function TransactionList() {
     </div>
   );
 }
+
 export default TransactionList;
