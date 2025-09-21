@@ -11,7 +11,7 @@ const app = express();
 
 // IMPORTANT: Middleware order matters!
 app.use(cors({
-  origin: "https://your-frontend.vercel.app", // apna Vercel URL daalna
+  origin: "https://yourledger.vercel.app", // apna Vercel URL daalna
   methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 
