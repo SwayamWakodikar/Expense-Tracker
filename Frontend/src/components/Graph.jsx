@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import axios from "axios";
 import { Riple } from "react-loading-indicators";
 import {
   AreaChart,
@@ -11,43 +10,64 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import axios from "axios";
+
 function Graph() {
   const [chartData, setChartData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   const fetchTransactions = async () => {
     try {
       setLoading(true);
       const res = await axios.get("http://localhost:5000/api/expense");
+      
+      // Define proper month order
+      const monthOrder = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+      ];
+      
+      // Create a month mapping with proper indices
       const monthlyData = {};
+      
       res.data.forEach((t) => {
-        const month = new Date(t.date).toLocaleString("en-US", {
-          month: "short",
-        });
-        if (!monthlyData[month]) {
-          monthlyData[month] = 0;
+        const date = new Date(t.date);
+        const monthIndex = date.getMonth(); // 0-11
+        const monthName = monthOrder[monthIndex];
+        
+        if (!monthlyData[monthName]) {
+          monthlyData[monthName] = {
+            amount: 0,
+            index: monthIndex
+          };
         }
-        monthlyData[month] += t.amount;
+        monthlyData[monthName].amount += t.amount;
       });
 
-      // Convert to array for recharts
-      const formatted = Object.keys(monthlyData).map((month) => ({
-        name: month,
-        Expense: monthlyData[month],
-      }));
+      // Convert to array and sort by month index (chronological order)
+      const formatted = Object.keys(monthlyData)
+        .map((month) => ({
+          name: month,
+          Expense: monthlyData[month].amount,
+          monthIndex: monthlyData[month].index
+        }))
+        .sort((a, b) => a.monthIndex - b.monthIndex) // Sort by month index, not alphabetically
+        .map(({ name, Expense }) => ({ name, Expense })); // Remove monthIndex from final data
 
       setChartData(formatted);
       setError(null);
     } catch (err) {
-      console.error("Error occured while fetching the data", err);
-      setError("Error Occured");
+      console.error("Error occurred while fetching the data", err);
+      setError("Error Occurred");
     } finally {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     fetchTransactions();
   }, []);
+
   if (loading) {
     return (
       <div className="GraphOuterCard">
@@ -57,7 +77,7 @@ function Graph() {
           </div>
           <div className="text-center py-8 text-white">
             <Riple
-              className="flex justify-center "
+              className="flex justify-center"
               color="#ffffff"
               size="medium"
               text=""
@@ -76,7 +96,6 @@ function Graph() {
           <div className="Graphtitle">
             <h2>Your Expense Report</h2>
           </div>
-
           <div className="text-center py-8 text-red-600 text-2xl font-bold">
             {error}
             <button
@@ -90,78 +109,79 @@ function Graph() {
       </div>
     );
   }
+
   return (
     <div className="GraphOuterCard">
       <div className="GraphInnerItems">
         <div className="flex justify-between items-center">
-            <div className="Graphtitle">
-                <h2 >Your Expense Report</h2>
-            </div>
-                    
-                    <button
-                        onClick={fetchTransactions}
-                        className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded text-sm transition-colors duration-200"
-                    >
-                        Refresh
-                    </button>
-                </div>
-        {/* <div className="Graphtitle">
-          <h2>Your Expense Report</h2>
-        </div> */}
-        {
-            chartData.length===0?(
-                <div className="text-center py-10 text-white italic">
-                            No transactions found. Add your first transaction!
-                        </div>
-            ):(<div className="Chart">
-          <ResponsiveContainer width="100%" height={300}>
-            <AreaChart
-              width={500}
-              height={400}
-              data={chartData}
-              margin={{
-                top: 10,
-                right: 30,
-                left: 0,
-                bottom: 15,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis
-                dataKey="name"
-                tick={{ fill: "#000000" }}
-                label={{
-                  value: "Months",
-                  position: "insideBottom",
-                  offset: -10,
-                  fill: "#000000",
-                }}
-              />
-              <YAxis
-                tick={{ fill: "#000000" }}
-                label={{
-                  value: "Expense",
-                  angle: -90,
-                  position: "insideLeft",
-                  offset: +7,
-                  fill: "#00000",
-                }}
-              />
-
-              <Tooltip />
-              <Area
-                type="monotone"
-                dataKey="Expense"
-                stroke="#320067"
-                fill="#5bb8e9"
-              />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>)
-        }
+          <div className="Graphtitle">
+            <h2>Your Expense Report</h2>
+          </div>
+          <button
+            onClick={fetchTransactions}
+            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded text-sm transition-colors duration-200"
+          >
+            Refresh
+          </button>
+        </div>
         
+        {chartData.length === 0 ? (
+          <div className="text-center py-10 text-white italic">
+            No transactions found. Add your first transaction!
+          </div>
+        ) : (
+          <div className="Chart">
+            <ResponsiveContainer width="100%" height={300}>
+              <AreaChart
+                width={500}
+                height={400}
+                data={chartData}
+                margin={{
+                  top: 10,
+                  right: 30,
+                  left: 0,
+                  bottom: 15,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis
+                  dataKey="name"
+                  tick={{ fill: "#000000" }}
+                  label={{
+                    value: "Months",
+                    position: "insideBottom",
+                    offset: -10,
+                    fill: "#000000",
+                  }}
+                />
+                <YAxis
+                  tick={{ fill: "#000000" }}
+                  label={{
+                    value: "Expense (₹)",
+                    angle: -90,
+                    position: "insideLeft",
+                    offset: +7,
+                    fill: "#000000",
+                  }}
+                  tickFormatter={(value) => `₹${value}`}
+                />
+                <Tooltip 
+                  formatter={(value) => [`₹${value.toFixed(2)}`, 'Expense']}
+                  labelStyle={{ color: '#000' }}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="Expense"
+                  stroke="#320067"
+                  fill="#5bb8e9"
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
 export default Graph;
