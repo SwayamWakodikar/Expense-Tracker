@@ -10,7 +10,11 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 // IMPORTANT: Middleware order matters!
-app.use(cors());
+app.use(cors({
+  origin: "https://your-frontend.vercel.app", // apna Vercel URL daalna
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
+
 app.use(express.json()); // Move this BEFORE routes!
 
 // Routes

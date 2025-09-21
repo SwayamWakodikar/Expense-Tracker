@@ -13,7 +13,7 @@ function TransactionList() {
   const fetchTransactions = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/expense");
+      const response = await axios.get("https://expense-tracker-y9fs.onrender.com/api/expense");
       setTransactions(response.data);
       setError(null);
     } catch (err) {

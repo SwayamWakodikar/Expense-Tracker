@@ -19,7 +19,7 @@ function Graph() {
   const fetchTransactions = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/api/expense");
+      const res = await axios.get("https://expense-tracker-y9fs.onrender.com/api/expense");
       
       // Define proper month order
       const monthOrder = [
