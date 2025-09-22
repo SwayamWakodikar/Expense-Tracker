@@ -1,4 +1,3 @@
-// import "@fontsource/montserrat"; // Import Montserrat font
 function Layout({ children }) {
   const currentYear = new Date().getFullYear();
   return (
