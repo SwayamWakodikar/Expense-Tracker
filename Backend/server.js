@@ -9,15 +9,13 @@ dotenv.config();
 const port = process.env.PORT || 5000;
 const app = express();
 
-// IMPORTANT: Middleware order matters!
 app.use(cors({
-  origin: "*", // apna Vercel URL daalna
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 
-app.use(express.json()); // Move this BEFORE routes!
+app.use(express.json());
 
-// Routes
 app.use("/api/expense", expenseRoutes);
 
 app.get("/", (req, res) => {

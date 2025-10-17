@@ -15,7 +15,7 @@ function Layout({ children }) {
       {/* Main Content */}
       <main className="flex-grow w-full flex">{children}</main>
       <div>
-        <footer className="text-white-400 mt-auto py-4">
+        <footer className="text-white-400 mt-auto py-4 justify-center">
         ©{currentYear}YourLedger
       </footer>
       </div>
