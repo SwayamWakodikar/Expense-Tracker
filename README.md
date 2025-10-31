@@ -23,7 +23,7 @@ Backend: Node.js / Express
 Database: MongoDB
 
 Version Control: Git & GitHub
-
+```
 📂 Project Structure
 expense-tracker/
 │── public/
@@ -35,7 +35,7 @@ expense-tracker/
 │   └── App.js          # Main app entry
 │── package.json
 │── README.md
-
+```
 🚀 Getting Started
 1️⃣ Clone the repository
 git clone https://github.com/SwayamWakodikar/Expense-Tracker.git
