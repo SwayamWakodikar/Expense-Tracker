@@ -23,7 +23,7 @@ Backend: Node.js / Express
 Database: MongoDB
 
 Version Control: Git & GitHub
-```
+```text
 📂 Project Structure
 expense-tracker/
 │── public/
